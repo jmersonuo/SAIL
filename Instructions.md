@@ -1,7 +1,7 @@
 
 
-# UOregon SAIL
-##**Interactive Web Mapping with CARTO**
+# UOregon SAIL Program Cartography 
+## **Interactive Web Mapping with CARTO**
 
 Ten to fifteen years ago, creating maps on the web required doing some challenging things, such as setting up server computers and using text-based markup code to specify how you wanted your map to be styled. This worked out for big corporations and governments who could afford the software and hardware and personnel to set it all up, but it made mapping difficult for journalists, small businesses, educators, and others who just wanted to visualize simple tabular data interactively.
 
@@ -9,57 +9,58 @@ As interactive web technologies have improved, companies like Mapbox and CARTO s
 
 # **1. Create a CARTO Account**
 
-The first thing you need to do is to create a 30-day trial account with CARTO. 
+The first thing you need to do is to create a 30-day trial account with CARTO. Go to [https://carto.com/](https://carto.com/) and click the "Sign Up" button at the top. 
+Then click ![Getting Started](/Images/GetStarted.png).
 
-Go to [https://carto.com/](https://carto.com/) and click the "Sign Up" button at the top. Then click the IMAGE button.
-
-Use any email address, or an existing google account to sign up.
-
+Sign up using any email address, or an existing google or github account.
 It takes a few seconds to create your account, and once this is finished, you'll see your CARTO Dashboard.
 
 # **2. Connecting a Table to a Map**
 
-Once you're logged in and on your dashboard, click "New Map" in the middle (you may need to click the "Maps" link at the top if you don't see this).
+Once you're logged in and on your dashboard, click **"New Map"** in the middle (you may need to click the "Maps" link at the top if you don't see this).
 
-Next, click "Create Empty Map" (on the right). (If it's your first time, it will ask if you want to Take a Tour; it's up to you, but for now, let's just edit your map.) It's possible you'll see a window asking if you want to add points, lines, or areas. If this is the case, click "Skip" to bypass the window and then click the "Add New Layer" button in the left pane.
+Next, click **"Create Empty Map"** (on the upper right). (If it's your first time, it will ask if you want to Take a Tour; it's up to you, but for now, let's just **edit your map**). At this point, you should see a nice, simple world map.
 
-Select "Data Library." This is CARTO's public library of open data that is a good starting place for many maps you will create. The dataset we will be using is called "Populated Places". Find it by clicking the "search" button on the left, and search for "Populated Places". The search may take awhile (I had to wait almost a minute). If it takes too long you can also browse available datasets and find this one on page 5 of the results. Once the search loads you may see multiple datasets here, but make sure to select the one called "Populated Places" with the subtitle "Most populated places" made by "Natural Earth Data".
+It's possible you'll see a window asking if you want to add points, lines, or areas. If this is the case, click "Skip" to bypass the window and then click the **"Add New Layer"** button in the upper left pane.
 
-Click the table's name and then click "Add Layer" at the bottom right of the interface to import the table into your account.
+Select **"DATA LIBRARY"** This is CARTO's public library of open data that is a good starting place for many maps you will create. The dataset we will be using is called "Populated Places". Find it by clicking the **"search"** button on the left, and type in *"Populated Places"*. The search may take awhile (I had to wait almost a minute). If it takes too long you can also browse available datasets and find this one on page 5 of the results. Once the search loads, you may see multiple datasets here, but make sure to select the one called "Populated Places" with the subtitle "Most populated places" made by "Natural Earth Data".
 
-After the file processes and inputs, you will be taken straight to the "Map View" of this dataset. Click on the layer ("ne\_10m\_populated..."), then click on the link under the title ("ne\_10m\_populated\_places\_simple") at the top of your screen to see the full data in this table in a new tab. Take a minute to explore it, see what columns you have available to you, and what kinds of data the table contains.
+Click the table's name and then click **"Add Layer"** at the bottom right of the interface to import the table into your account. Again, this may take a moment to complete.
+
+After the file processes and inputs, you will be taken straight to the "Map View" of this dataset. Click on the layer ("ne\_10m\_populated..."), then click on the link under the title ("ne\_10m\_populated\_places\_simple") at the top of your screen to see the full data in this table in a *new tab*. Take a minute to explore it, see what columns you have available to you, and what kinds of data the table contains. *Each row in this table is a dot on the map!*
 
 As you look at the table, take note of the second column from the left called the\_geom. It contains the latitude and longitude coordinates required to display data on a map. Without values in this column you wouldn't be able to map these data.
 
-IMAGE 1
+![The Geom](/Images/theGeom.png)
 
-Now go back to your map to begin designing your visualization.
-
+Now go back to your map *tab* to begin designing your map.
 
 
 # **3. Making A Basic Thematic Map**
 
 When you view your map, you should see something like this:
 
-IMAGE 2
+![Inital Map](/Images/Map1.png)
 
-First, let's take a look at the available basemaps by clicking the "Positron" layer at the bottom left. There are lots to choose from, and if you wanted to, you could change settings under the hood in CARTO to bring in additional basemaps from other sources.
+**Change the basemap***
+First, let's take a look at the available basemaps by clicking the *"Voyager"* layer at the bottom left. There are lots to choose from, and if you wanted to, you could change settings under the hood in CARTO to bring in additional basemaps from other sources.
 
-IMAGE 3
+![Basemaps](/Images/Basemaps.png)
 
-Play around and change the basemap a few times to see what's available. Then choose a basemap that isn't too busy, like Positron, Positron (lite), or Carto World Antique. After that's finished, click the back arrow in the top left, click your "ne\_10m\_populated" layer, and click on "style" to take a look at visualization.
+Play around and change the basemap a few times to see what's available. Each *Source* has a few *Styles*. Choose a basemap that *isn't too busy*, like Positron - Positron (lite), or Carto - World Antique, or Here - Reduced Day. After that's finished, click the back arrow in the top left, to go back to the main menu.
 
-IMAGE 4
+**Style your data layer***
+Click your "ne\_10m\_populated" layer, and click on "style" to take a look at the symbolozation settings.
+![Style](/Images/Style.png)
+Once there, keep "aggregation" the same, then set the "POINT COLOR" to "By value", then scroll to the bottom of the list to select the table column **'adm0cap'**, which contains data about which cities are *capitals* (represented by 1 in the legend at the bottom-right corner of the map) and which aren't (represented by 0). Click where it says "Quantiles" and scroll down to select "Category", then play around with the colors. You should have a few points showing the country capitols, and then the rest a different color. Look for Washington, D.C., and Ottawa, Canada. 
 
-Once there, keep "aggregation" the same, then click the "fill" button (the one with the yellow line in it). Click "by value", then scroll to the bottom of the list to select the table column 'adm0cap', which contains data about which cities are capitals (represented by 1 in the legend at the bottom-right corner of the map) and which aren't (represented by 0). Click where it says "Quantiles" and select "Category", then play around with the colors. You should have a few points showing the country capitols, and then the rest a different color.
-
-IMAGE 5
+![Style By Value](/Images/StyleByValue.png)
 
 Now you could share your map by clicking the back arrow in the top left, then by clicking "public" and then the blue "publish" button that appears in the top left.
 
 # **4. Making a Choropleth Map**
 
-To make your first choropleth map, you'll be using U.S. county population data. First, go ahead and copy this link:
+A choropleth map uses differences in shading, coloring, within predefined areas (such as county, state, or national boundaries) to indicate the average values of a property or quantity in those areas. To make your first choropleth map, you'll be using U.S. county population data. First, go ahead and *copy*:
 
 http://academy.CARTO.com/d/counties.zip
 
