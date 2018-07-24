@@ -59,6 +59,14 @@ Once there, keep "aggregation" as "POINTS". then set the "POINT COLOR" to "By va
 
 ![Style By Value](/Images/StyleByValue.png)
 
+**C. Add a legend **
+
+Still in the ne\_10m\_populated" layer options, click on the **"LEGEND"** tab. Choose the custom legend. 
+
+Give it the title **"Populated Places"**. Leave the first item as **"Places"**, the second **"Capitals"**, and the third **"Others"**.
+
+![Legend](/Images/Legend.png)
+
 # **4. Interactive Visualization in CARTO**
 
 If you need to you can get back to your CARTO dashboard at any time by clicking the circle icon in the top left.
@@ -96,17 +104,19 @@ While these simple point markers can be useful in some situations, CARTO offers 
 
 Set the point size to "By value", then choose 'damage' as the field you want to visualize. In this case graduated symbols require numerical data. The map then shows markers with different sizes based on the amount of damage caused by the tornado.
 
-Now you'll change the point symbol settings (point size, color, and stroke) to clean up the visualization. In our example above we just bumped down the stroke width to 0.5 on top of the "Positron" basemap, and changed the colors. Try setting the point size min to 5 and a max to 30. Change the stroke size to 0.5. You can play with this and the other parameters—like fill and stroke—until you get a visualization you like.
+Now you'll change the point symbol settings (point size, color, and stroke) to clean up the visualization. In our example above we just bumped down the stroke width to 0.5 on top of the "Positron" basemap, and changed the colors. Try setting the point size min to 5 and a max to 20. Change the stroke size to 0.5. You can play with this and the other parameters—like fill and stroke—until you get a visualization you like.
 
 # **6. Density Map**
 
-Another CARTO visualization method we'll take a look at is "density". This visualization creates a gridded system over your data, counts the number of points in each grid cell, and gives each cell a color based on the number of points inside the cell. The grid is made using hexagons, and maps like these are often called Hexbin maps. Hexbin maps avoid the problem associated with most choropleth maps—counties and countries can be very different sizes, and bigger places will look more visually dominant than smaller areas. Hexbins solve the area problem by standardizing the area for each filled object. They're a nice way to handle point data when you have thousands of points and would like highlight the density of those points.
+Another CARTO visualization method we'll take a look at is "density". This visualization creates a gridded system over your data, counts the number of points in each grid cell, and gives each cell a color based on the number of points inside the cell. The grid is made using hexagons, and maps like these are often called Hexbin maps. They're a nice way to handle point data when you have thousands of points and would like highlight the density of those points.
 
-IMAGE 11
+To show density in CARTO, under "Aggregation", click the "Squares" or "Hexbins". In CARTO you have the option to change the cell size and method (using hexagons or rectangles). You can also change the number of buckets, which is the number of classes that your data is split into. Finally, as with the other visualizations, you can change the stroke, fill and opacity to suit your needs.
 
-To show density in CARTO, click the "Squares" or "Hexbins" under "Aggregation". In CARTO you have the option to change the cell size and method (using hexagons or rectangles). You can also change the number of buckets, which is the number of classes that your data is split into. Finally, as with the other visualizations, you can change the stroke, fill and opacity to suit your needs.
+What do you notice about this view and its ability to show you the density of tornadoes?
 
-Give the hexbin wizard a try. What do you notice about this view and its ability to show you the density of tornadoes?
+![Hexbins](/Images/Hexbins.png)
+
+
 
 # **7. Adding Labels**
 
