@@ -59,8 +59,120 @@ Once there, keep "aggregation" as "POINTS". then set the "POINT COLOR" to "By va
 
 ![Style By Value](/Images/StyleByValue.png)
 
+# **4. Interactive Visualization in CARTO**
 
-# **4. Making a Choropleth Map**
+If you need to you can get back to your CARTO dashboard at any time by clicking the circle icon in the top left.
+
+Now, well get to differnt ways to symbolize data. You'll be exploring tornados. To get started, go back up to the map layers pane and then click on "+Add new Layer"  and choose the "Connect Dataset" tab. **Copy** the link below:
+
+https://github.com/jmersonuo/SAIL/blob/master/Data/Tornados.csv
+
+Then just paste the link you copied above into the link field, and click "Submit."
+Under "Sync my data", choose **"Never"**.
+
+
+The map may look similar to the population points, but this time each dot represents a recorded tornado in 2013, not a city. *If you want*, you can examine the information by opening the CSV file from the link provided with Excel or another spreadsheet software. If you do, you'll see four columns: damage, date, latitude, and longitude.
+
+In the data view on CARTO, you have all of these columns in addition to a few created by the software. One of these columns is called "the\_geom," which we have mentioned earlier. This time, "the\_geom" contains the two columns in your CSV labeled "latitude" and "longitude" — CARTO knows how to take these columns and turn them into points.
+
+CARTO also lets you see the _types_ of data for each column. For example, you can see that **damage** is a number, and not a string data type (because it has numerical data, not text). You can also see that **date** was imported as a string, rather than a date type.
+
+It's easy — and important — for you to change the data types, because they affect what kinds of visualizations you can create. For example, using the date type, you can do some things that you can't do with a string type. Therefore, click on the snowman menu next to **"date"** to pull down a menu, click on **"Change data type…"** and select "date." You'll be asked to confirm and let the software know that it's okay to make the change. Below you can see that we're changing the "date" column from a "string" to a "date" data type.
+
+![Date Format](/Images/dateformat.png)
+
+
+# **5. Making a Thematic Map**
+
+In the data view, click "Create map" in the bottom right. This will make a new map for this dataset. Go to style the layer by clicking on the layer name and the "style" link; note that by default you're on the simple visualization. Now you're ready to play around with modifying the markers.
+
+A marker has multiple elements you can change. The point size, a number that represents the overall size of the marker. The second is the color and opacity (transparent or not) of the marker. The third element, blending, allows you to modify how overlapping markers are displayed.
+
+A marker "Stroke" has size (thickness of each marker's border), color, and opacity elements. To make changes to these marker features, click on the number values to make changes with a slider control.
+
+While these simple point markers can be useful in some situations, CARTO offers many other options. Let's start by looking at adding Graduated Symbols.
+
+![Graduated Symbols](/Images/graduatedSymbols.png)
+
+Set the point size to "By value", then choose 'damage' as the field you want to visualize. In this case graduated symbols require numerical data. The map then shows markers with different sizes based on the amount of damage caused by the tornado.
+
+Now you'll change the point symbol settings (point size, color, and stroke) to clean up the visualization. In our example above we just bumped down the stroke width to 0.5 on top of the "Positron" basemap, and changed the colors. Try setting the point size min to 5 and a max to 30. Change the stroke size to 0.5. You can play with this and the other parameters—like fill and stroke—until you get a visualization you like.
+
+# **6. Density Map**
+
+Another CARTO visualization method we'll take a look at is "density". This visualization creates a gridded system over your data, counts the number of points in each grid cell, and gives each cell a color based on the number of points inside the cell. The grid is made using hexagons, and maps like these are often called Hexbin maps. Hexbin maps avoid the problem associated with most choropleth maps—counties and countries can be very different sizes, and bigger places will look more visually dominant than smaller areas. Hexbins solve the area problem by standardizing the area for each filled object. They're a nice way to handle point data when you have thousands of points and would like highlight the density of those points.
+
+IMAGE 11
+
+To show density in CARTO, click the "Squares" or "Hexbins" under "Aggregation". In CARTO you have the option to change the cell size and method (using hexagons or rectangles). You can also change the number of buckets, which is the number of classes that your data is split into. Finally, as with the other visualizations, you can change the stroke, fill and opacity to suit your needs.
+
+Give the hexbin wizard a try. What do you notice about this view and its ability to show you the density of tornadoes?
+
+# **7. Adding Labels**
+
+Labels can be added to most symbolization method. But here let's label our hexbins
+
+Under the style section, click the box for "labels", then select "agg\_value" for the column field. This value is the aggregated count of all points within a bin.
+
+IMAGE 12
+
+There are many parameters that affect how text is displayed — font, halo, offset, overlap, and placement. You can play with the font and halo to see the visual effects these have. Make sure the "Offset" field is set to "0" to have our labels show up in the center of each bin. The "label overlap" parameter changes whether the labels are allowed to overlap one another or not. You can turn the labels off again by unchecking the "Labels."
+
+# **8. Let's Make Maps That Move**
+
+Go back up to the map layers pane. Click on the "+Add New Layer" button. Then, in the "Your Dataset" tab, add the tornadoes dataset. We are adding the same dataset to the map again because we want to play around with the dataset some more but don't want to lose the awesome stylization you just did! Let's rename this new layer so we don't confuse the two though. Click on the 3 dots next to the layer to bring up the layer menu. Click "rename" and name it something like "animated twisters." Let's also turn off the old tornado layer.
+
+"Animation" is a CARTO style that allows you to visualize geographic data over time. You can access it just like you would other styles, by selecting "animation" under "aggregation" in the style menu.
+
+IMAGE 14
+
+Once you select Animation, it's probable that the column that CARTO picked to visualize is the **CARTO\_id** column. This column is an arbitrarily assigned ID number that CARTO uses and assigns based on the order of the data in your spreadsheet. In terms of mapping, it's meaningless, so we should go ahead and select the column labeled **date** since that makes the most sense here for driving an animation.
+
+As with the other visualizations, you can change the stroke and fill of the markers. Experiment now with changing opacity and colors until you're happy with what you see. You may want to remove the marker stroke to clean things up a bit further.
+
+There are other useful parameters in the Animation visualization as well. "Steps" refer to the number of bins that the data are broken up into when it's visualized. You can also change the duration of the visualization, which changes the length of the entire animation from beginning to end. Finally, you can change the trails setting for your visualization. These are the burst effects that happen after the point first appears, and leave a visual "trail" after the point disappears.
+
+Try out some of these controls and take a look at what impact they have on your visualization.
+
+In the standard Animation visualization, data points disappear after they appear on the map. If you switch the "Accum." toggle on, points will stay on the map, and build upon each other (and might freeze your computer). Often, it's best to reduce the opacity of your markers when you're using the cumulative visualization so that the effect of points layering over one another becomes noticeable.
+
+IMAGE 15
+
+It's up to you regarding when to use the cumulative function, and when to allow your points to disappear. When you are highlighting accumulation or intensity over time, the cumulative function may be very helpful.
+
+# **9. Publishing Our Maps**
+
+Before you publish your map, you should change the name. "Untitled Map" isn't a good name for a map. You can do this in the top left of your screen by clicking the snowman menu next to next to the name "Untitled map". Click "Rename" to change the title and "Edit metadata" to include details on what the data is, or where you found it.
+
+Publish and share your map by clicking the blue "publish" button in the bottom left. Click on the red **"PRIVATE"** button to change the priacy to "Public". If you have a full-access CARTO account, in this window you can also change other parameters about your shared map. We're using the free version, so we've got fewer options. Keep in mind that because this is the free version, all maps made will be public. 
+
+If you make any changes to the map, the "Publish" button will change to an "Update" button, so make sure you update the map here every time you make any changes.
+
+Click **"Get the link"** to copy a link to your map to your clipboard. View it in a new tab and, if you want, email it to a friend or family member!
+
+IMAGE 16
+
+## **Bonus #1:  Data Filtering**
+
+The final thing to check out is data filtering. To get started, click the "analysis" button at the top-left (next to "style"). Click the "Add analysis" button, then find the "Filter by column value" analysis, then click the big blue button "add analysis" at the bottom right. This will pull up a pane that allows you to select a column to filter the data by. Choose "damage" and select some values to sort by. It might be useful to browse your data to see what values might be good to filter by. Once you apply your filter, it will create a sort of new layer which you can then restyle like the other ones you've made (change the color, sizes, labels).
+
+IMAGE 13
+
+By looking at the "damage" column of the tornado data you can see that there are many tornados causing only a small amount damage and just a few very damaging tornados.
+
+If you filter by the "date" column, you can see an interesting variance in when tornados occur with higher and lower frequency. What do you think is happening there?
+
+## **Bonus #2: Sharing your Webmap Online**
+
+When you click publish, you are given an option to generate an embeddable link to your map. This link allows you to embed the webmap on to your website or online portfolio. To do so, make sure your map is published, then copy the "Embed it" link. Now you can plate this link into any HTML webpage.
+
+IMAGE 17
+
+You will want to make sure you map is at the right zoom level and extent for the webpage format you intend on embedding it on, otherwise your map may be too zoomed in or off-centered.
+
+IMAGE 18
+
+## **Bonus #3: Making a Choropleth Map**
 
 A choropleth map uses differences in shading, coloring, within predefined areas (such as county, state, or national boundaries) to indicate the average values of a property or quantity in those areas. To make your first choropleth map, you'll be using U.S. county population data. First, highlight and *copy* this link (don't click to download): http://academy.CARTO.com/d/counties.zip
 
@@ -97,120 +209,6 @@ In the "choropleth" visualization you can also change the fill colors, county bo
 If you click the back arrow and "public" in the upper left of the interface, you can then click "Publish" in the upper left of the interface to share it using the link method we used earlier.
 
 ![County Population](/Images/CountyPopulation.png)
-
-# **5. Interactive Visualization in CARTO**
-
-If you need to you can get back to your CARTO dashboard at any time by clicking the circle icon in the top left.
-
-Now, well get to differnt ways to symbolize data. You'll be exploring tornados. To get started, go back up to the map layers pane and hide the "us_counties" layer by clicking the eye button. Then click on "+Add new Layer"  and choose the "Connect Dataset" tab. **Copy** the link below:
-
-http://academy.CARTO.com/d/tornadoes.zip
-
-Then just paste the link you copied above into the link field, and click "Submit."
-
-The map may look similar to the population points, but this time each dot represents a recorded tornado, not a city. *If you want*, you can examine the information by opening the CSV file from the link provided with Excel or another spreadsheet software. If you do, you'll see four columns: damage, date, latitude, and longitude.
-
-In the data view on CARTO, you have all of these columns in addition to a few created by the software. One of these columns is called "the\_geom," which we have mentioned earlier. This time, "the\_geom" contains the two columns in your CSV labeled "latitude" and "longitude" — CARTO knows how to take these columns and turn them into points.
-
-CARTO also lets you see the _types_ of data for each column. For example, you can see that **damage** is a number, and not a string data type (because it has numerical data, not text). You can also see that **date** was imported as a string, rather than a date type.
-
-It's easy — and important — for you to change the data types, because they affect what kinds of visualizations you can create. For example, using the date type, you can do some things that you can't do with a string type. Therefore, click on the snowman menu next to **"date"** to pull down a menu, click on **"Change data type…"** and select "date." You'll be asked to confirm and let the software know that it's okay to make the change. Below you can see that we're changing the "date" column from a "string" to a "date" data type.
-
-![Date Format](/Images/dateformat.png)
-
-
-# **6. Making a Thematic Map**
-
-Now, click "Create map". Go to style the layer by clicking on the layer name and the "style" link; note that you're by default on the simple visualization. Now you're ready to play around with modifying the markers.
-
-A marker "Fill" has three elements you can change. The first represents the overall size of the marker. The second is the fill color of the marker, and the third element allows you to modify the opacity of the fill color (transparent or not).
-
-A marker "Stroke" also allows you to change three marker elements. The first controls the thickness of each marker's border, the second their color, and the third the opacity of the markers' border color.
-
-To make changes to these marker features, click on the number values to make changes with a slider control.
-
-While these simple point markers can be useful in some situations, CARTO offers many other options. Let's start by looking at adding Graduated Symbols.
-
-IMAGE 10
-
-Click on the number next to "fill" (probably "7"), click "by value", then choose 'damage' as the field you want to visualize. In this case graduated symbols require numerical data. The map then shows markers with different sizes based on the amount of damage caused by the tornado.
-
-Now you'll change the parameters you are already familiar with (marker radius, fill, and stroke) to clean up the visualization. In our example above we just bumped down the stroke width to 0.5 on top of the "Positron" basemap, and changed the colors. You can play with this and the other parameters—like fill and stroke—until you get a visualization you like.
-
-# **7. Density Map**
-
-Another CARTO visualization method we'll take a look at is "density". This visualization creates a gridded system over your data, counts the number of points in each grid cell, and gives each cell a color based on the number of points inside the cell. The grid is made using hexagons, and maps like these are often called Hexbin maps. Hexbin maps avoid the problem associated with most choropleth maps—counties and countries can be very different sizes, and bigger places will look more visually dominant than smaller areas. Hexbins solve the area problem by standardizing the area for each filled object. They're a nice way to handle point data when you have thousands of points and would like highlight the density of those points.
-
-IMAGE 11
-
-To show density in CARTO, click the "Squares" or "Hexbins" under "Aggregation". In CARTO you have the option to change the cell size and method (using hexagons or rectangles). You can also change the number of buckets, which is the number of classes that your data is split into. Finally, as with the other visualizations, you can change the stroke, fill and opacity to suit your needs.
-
-Give the hexbin wizard a try. What do you notice about this view and its ability to show you the density of tornadoes?
-
-# **8. Adding Labels**
-
-Labels can be added to most symbolization method. But here let's label our hexbins
-
-Under the style section, click the box for "labels", then select "agg\_value" for the column field. This value is the aggregated count of all points within a bin.
-
-IMAGE 12
-
-There are many parameters that affect how text is displayed — font, halo, offset, overlap, and placement. You can play with the font and halo to see the visual effects these have. Make sure the "Offset" field is set to "0" to have our labels show up in the center of each bin. The "label overlap" parameter changes whether the labels are allowed to overlap one another or not. You can turn the labels off again by unchecking the "Labels."
-
-# **9. Data Filtering**
-
-The final thing to check out is data filtering. To get started, click the "analysis" button at the top-left (next to "style"). Click the "Add analysis" button, then find the "Filter by column value" analysis, then click the big blue button "add analysis" at the bottom right. This will pull up a pane that allows you to select a column to filter the data by. Choose "damage" and select some values to sort by. It might be useful to browse your data to see what values might be good to filter by. Once you apply your filter, it will create a sort of new layer which you can then restyle like the other ones you've made (change the color, sizes, labels).
-
-IMAGE 13
-
-By looking at the "damage" column of the tornado data you can see that there are many tornados causing only a small amount damage and just a few very damaging tornados.
-
-If you filter by the "date" column, you can see an interesting variance in when tornados occur with higher and lower frequency. What do you think is happening there?
-
-# **10. Let's Make Maps That Move**
-
-Go back up to the map layers pane. Click on the "+Add New Layer" button. Then, in the "Your Dataset" tab, add the tornadoes dataset. We are adding the same dataset to the map again because we want to play around with the dataset some more but don't want to lose the awesome stylization you just did! Let's rename this new layer so we don't confuse the two though. Click on the 3 dots next to the layer to bring up the layer menu. Click "rename" and name it something like "animated twisters." Let's also turn off the old tornado layer.
-
-"Animation" is a CARTO style that allows you to visualize geographic data over time. You can access it just like you would other styles, by selecting "animation" under "aggregation" in the style menu.
-
-IMAGE 14
-
-Once you select Animation, it's probable that the column that CARTO picked to visualize is the **CARTO\_id** column. This column is an arbitrarily assigned ID number that CARTO uses and assigns based on the order of the data in your spreadsheet. In terms of mapping, it's meaningless, so we should go ahead and select the column labeled **date** since that makes the most sense here for driving an animation.
-
-As with the other visualizations, you can change the stroke and fill of the markers. Experiment now with changing opacity and colors until you're happy with what you see. You may want to remove the marker stroke to clean things up a bit further.
-
-There are other useful parameters in the Animation visualization as well. "Steps" refer to the number of bins that the data are broken up into when it's visualized. You can also change the duration of the visualization, which changes the length of the entire animation from beginning to end. Finally, you can change the trails setting for your visualization. These are the burst effects that happen after the point first appears, and leave a visual "trail" after the point disappears.
-
-Try out some of these controls and take a look at what impact they have on your visualization.
-
-In the standard Animation visualization, data points disappear after they appear on the map. If you switch the "Accum." toggle on, points will stay on the map, and build upon each other (and might freeze your computer). Often, it's best to reduce the opacity of your markers when you're using the cumulative visualization so that the effect of points layering over one another becomes noticeable.
-
-IMAGE 15
-
-It's up to you regarding when to use the cumulative function, and when to allow your points to disappear. When you are highlighting accumulation or intensity over time, the cumulative function may be very helpful.
-
-# **11. Publishing Our Maps**
-
-Before you publish your map, you should change the name. "Untitled Map" isn't a good name for a map. You can do this in the top left of your screen by clicking the snowman menu next to next to the name "Untitled map". Click "Rename" to change the title and "Edit metadata" to include details on what the data is, or where you found it.
-
-Publish and share your map by clicking the blue "publish" button in the bottom left. Click on the red **"PRIVATE"** button to change the priacy to "Public". If you have a full-access CARTO account, in this window you can also change other parameters about your shared map. We're using the free version, so we've got fewer options. Keep in mind that because this is the free version, all maps made will be public. 
-
-If you make any changes to the map, the "Publish" button will change to an "Update" button, so make sure you update the map here every time you make any changes.
-
-Click **"Get the link"** to copy a link to your map to your clipboard. View it in a new tab and, if you want, email it to a friend or family member!
-
-IMAGE 16
-
-
-## **Bonus: Sharing your Webmap Online**
-
-When you click publish, you are given an option to generate an embeddable link to your map. This link allows you to embed the webmap on to your website or online portfolio. To do so, make sure your map is published, then copy the "Embed it" link. Now you can plate this link into any HTML webpage.
-
-IMAGE 17
-
-You will want to make sure you map is at the right zoom level and extent for the webpage format you intend on embedding it on, otherwise your map may be too zoomed in or off-centered.
-
-IMAGE 18
 
 # **12. Note about Working with Multiple Layers in CARTO**
 
