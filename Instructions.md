@@ -11,7 +11,7 @@ As interactive web technologies have improved, companies like Mapbox and CARTO s
 
 The first thing you need to do is to create a 30-day trial account with CARTO. 
 
-Go to [https://carto.com/](https://carto.com/) and click the "Sign Up" button at the top. Then click the IMAGE button.
+Go to [https://carto.com/](https://carto.com/) and click the "Sign Up" button at the top. Then click the ![Getting Started](https://github.com/jmersonuo/SAIL/Images/GetStarted.png) button.
 
 Use any email address, or an existing google account to sign up.
 
