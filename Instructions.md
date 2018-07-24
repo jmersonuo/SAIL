@@ -42,26 +42,27 @@ When you view your map, you should see something like this:
 
 ![Inital Map](/Images/Map1.png)
 
-**Change the basemap***
+**A. Change the basemap**
+
 First, let's take a look at the available basemaps by clicking the *"Voyager"* layer at the bottom left. There are lots to choose from, and if you wanted to, you could change settings under the hood in CARTO to bring in additional basemaps from other sources.
 
 ![Basemaps](/Images/Basemaps.png)
 
-Play around and change the basemap a few times to see what's available. Each *Source* has a few *Styles*. Choose a basemap that *isn't too busy*, like Positron - Positron (lite), or Carto - World Antique, or Here - Reduced Day. After that's finished, click the back arrow in the top left, to go back to the main menu.
+Play around and change the basemap a few times to see what's available. Each *Source* has a few *Styles*. Choose a basemap that isn't too busy, like Positron - Positron (lite), or Carto - World Antique, or Here - Reduced Day. After that's finished, click the back arrow in the top left, to go back to the main menu.
 
-**Style your data layer***
-Click your "ne\_10m\_populated" layer, and click on "style" to take a look at the symbolozation settings.
+**B. Style your data layer**
+
+We are going to make the points the are nation capitals a different color than the rest of the points. Click your "ne\_10m\_populated" layer, and click on "style" to take a look at the symbolozation settings.
 ![Style](/Images/Style.png)
-Once there, keep "aggregation" the same, then set the "POINT COLOR" to "By value", then scroll to the bottom of the list to select the table column **'adm0cap'**, which contains data about which cities are *capitals* (represented by 1 in the legend at the bottom-right corner of the map) and which aren't (represented by 0). Click where it says "Quantiles" and scroll down to select "Category", then play around with the colors. You should have a few points showing the country capitols, and then the rest a different color. Look for Washington, D.C., and Ottawa, Canada. 
+
+Once there, keep "aggregation" as "POINTS". then set the "POINT COLOR" to "By value", then scroll to the bottom of the list to select the table column **'adm0cap'**, which contains data about which cities are *capitals* (represented by 1 in the legend at the bottom-right corner of the map) and which aren't (represented by 0). Click where it says "Quantiles" and scroll down to select "Category", then try different color schemes. You should have a few points showing the country capitols, and the rest a different color. Can you identify Washington, D.C., and Ottawa, Canada on the map?
 
 ![Style By Value](/Images/StyleByValue.png)
 
-Now you could share your map by clicking the back arrow in the top left, then by clicking "public" and then the blue "publish" button that appears in the top left.
 
 # **4. Making a Choropleth Map**
 
 A choropleth map uses differences in shading, coloring, within predefined areas (such as county, state, or national boundaries) to indicate the average values of a property or quantity in those areas. To make your first choropleth map, you'll be using U.S. county population data. First, go ahead and *copy*:
-
 http://academy.CARTO.com/d/counties.zip
 
 On the same map, turn off the populated place layer by clicking the eye symbol.
@@ -190,13 +191,16 @@ It's up to you regarding when to use the cumulative function, and when to allow 
 
 # **11. Publishing Our Maps**
 
-Before you publish your map, you may want to change the name. You can do this in the top left of your screen by clicking the three dots next to the name. This is a good place to include details on what the data is, or where you found it.
+Before you publish your map, you should change the name. "Untitled Map" isn't a good name for a map. You can do this in the top left of your screen by clicking the snowman menu next to next to the name "Untitled map". Click "Rename" to change the title and "Edit metadata" to include details on what the data is, or where you found it.
 
-Once you've included that, you can publish and share your visualization. To do so, click "Publish" at the bottom of the left pane of your visualization. If you have a full-access CARTO account, in this window you can also change other parameters about your shared map. We're using the free version, so we've got fewer options. Keep in mind that because this is the free version, all maps made will be public.
+Publish and share your map by clicking the blue "publish" button in the bottom left. Click on the red **"PRIVATE"** button to change the priacy to "Public". If you have a full-access CARTO account, in this window you can also change other parameters about your shared map. We're using the free version, so we've got fewer options. Keep in mind that because this is the free version, all maps made will be public. 
+
+If you make any changes to the map, the "Publish" button will change to an "Update" button, so make sure you update the map here every time you make any changes.
+
+Click **"Get the link"** to copy a link to your map to your clipboard. View it in a new tab and, if you want, email it to a friend or family member!
 
 IMAGE 16
 
-On this publication page click "Publish" at the top left under the map title to save and publish it. Additionally, if you make any changes to the map, the "Publish" button will change to an "Update" button, so make sure you update the map here every time you make any changes.
 
 ## **Bonus: Sharing your Webmap Online**
 
