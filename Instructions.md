@@ -52,72 +52,72 @@ Play around and change the basemap a few times to see what's available. Each *So
 
 **B. Style your data layer**
 
-We are going to make the points the are nation capitals a different color than the rest of the points. Click your "ne\_10m\_populated" layer, and click on "style" to take a look at the symbolozation settings.
+We are going to make the points that are nations' capitals a different color than the rest of the points. Click your "ne\_10m\_populated" layer, and click on "STYLE" to take a look at the symbolozation settings.
 ![Style](/Images/Style.png)
 
-Once there, keep "aggregation" as "POINTS". then set the "POINT COLOR" to "By value", then scroll to the bottom of the list to select the table column **'adm0cap'**, which contains data about which cities are *capitals* (represented by 1 in the legend at the bottom-right corner of the map) and which aren't (represented by 0). Click where it says "Quantiles" and scroll down to select "Category", then try different color schemes. You should have a few points showing the country capitols, and the rest a different color. Can you identify Washington, D.C., and Ottawa, Canada on the map?
+Once there, keep "aggregation" as "POINTS". then set the "POINT COLOR" to "By value", then scroll to the bottom of the list to select the table column **'adm0cap'**, which contains data about which cities are *capitals* (represented by 1 in the color-selecctor) and which aren't (represented by 0). Click where it says "Quantiles" and scroll down to select "Category", then try different color schemes. You should have a few points showing the nations' capitols in one color, and the rest a different color. Can you identify Washington, D.C., and Ottawa, Canada on the map?
 
 ![Style By Value](/Images/StyleByValue.png)
 
 
 # **4. Making a Choropleth Map**
 
-A choropleth map uses differences in shading, coloring, within predefined areas (such as county, state, or national boundaries) to indicate the average values of a property or quantity in those areas. To make your first choropleth map, you'll be using U.S. county population data. First, go ahead and *copy*:
-http://academy.CARTO.com/d/counties.zip
+A choropleth map uses differences in shading, coloring, within predefined areas (such as county, state, or national boundaries) to indicate the average values of a property or quantity in those areas. To make your first choropleth map, you'll be using U.S. county population data. First, highlight and *copy* this link (don't click to download): http://academy.CARTO.com/d/counties.zip
 
-On the same map, turn off the populated place layer by clicking the eye symbol.
+If you need to you can get back to your CARTO dashboard at any time by clicking the circle icon in the top left ![Circle](/Images/circle.png).
 
-Now click on "+Add new Layer"
+On your map, turn off the populated place layer by clicking the eye symbol ![Eye](/Images/eye.png).
 
-If you need to you can get back to your CARTO dashboard at any time by clicking the circle icon in the top left.
+Now click on **"+ADD NEW LAYER"**
 
-In the dialog box that appears, click "Connect Dataset" then just paste the link you copied above into the link field, and click "Submit."
+In the dialog box that appears, click **"Connect Dataset"** then *paste* the link you copied above into the link field, and click "Submit."
 
-IMAGE 6
+![Connect Dataset](/Images/ConnectDataset.png)
 
 Let's now look at the data in the Data View. Click on the new layer, then click on the link under the layer name. This will bring up a new tab in your web browser. Take a look through the data columns. Note that this time the the\_geom column indicates "Polygon" values. This means that the geometry that CARTO will map is a polygon format rather than the point features you worked with last time. Any changes you make to the dataset here will be carried over the any of your maps using the dataset.
 
-Going back to the map, in the layer you added ("us\_counties"), and click "style". Here you can change the polygon fill and stroke.
+Going back to the map, in the layer you added ("us\_counties"), and click "STYLE". Here you can change the polygon fill and stroke (outline) color and thickness.
 
-IMAGE 7
+![Polygon Fill](/Images/PolygonFill.png)
 
-In the same area where we have been styling the layer, click on "pop-up,". Here you'll create the information that will appear whenever a viewer clicks on a county.
+In the same area where we have been styling the layer, click on "POP-UP". Here you'll create the information that will appear whenever a viewer clicks on a county.
 
-Choose the "light" style.
+Choose the "pop-up light" style.
 
 Each column of data can have its own label or display, and you can choose which you'd like to show by clicking the check boxes to the left of the listed column names. Turn on the name, pop, and pop\_sqkm fields by selecting their toggle buttons. You can also reorder or rename the columns that you want to show. You can check your choices in real time by clicking on a county in the map after you make a change.
 
-IMAGE 8
+![Popup](/Images/Popup.png)
 
-Next, we're going to make this into a choropleth map. Return to "style" and click the "fill" button. Again, choose "by value".
+Next, we're going to make this into a choropleth map. Each county will be a different color based on its population. Return to "style" and change the "POLYGON COLOR" to **"by value"**.
 
 In the selector list you can change the table column used to make the choropleth map, but remember that only columns with numerical data can be used in such a map. With this particular table data you can go ahead and choose to show "pop\_sqkm", which maps population density per square kilometer.
 
-In the "choropleth" visualization you can also change the fill colors, county borders, and color opacity, just like you could in the "simple" visualization. Go ahead and play around with these! Also try out the different classification schemes (where it says "Quantile") and the number of buckets. "Jenks" classification is the same as the "Natural Breaks" you learned about in class.
+In the "choropleth" visualization you can also change the fill colors, county borders, and color opacity, just like you could in the "simple" visualization. Go ahead and play around with these! Also try out the different classification schemes (where it says "Quantile") and the number of buckets. These are different ways of classifying the numerical data into groups.
 
 If you click the back arrow and "public" in the upper left of the interface, you can then click "Publish" in the upper left of the interface to share it using the link method we used earlier.
 
+![County Population](/Images/CountyPopulation.png)
+
 # **5. Interactive Visualization in CARTO**
-
-In this lesson you'll be exploring tornados. To get started, copy the link below:
-
-http://academy.CARTO.com/d/tornadoes.zip
-
-Going back up to the map layers pane, click on "+Add new Layer"
 
 If you need to you can get back to your CARTO dashboard at any time by clicking the circle icon in the top left.
 
-In the dialog box that appears, click "Connect Dataset" then just paste the link you copied above into the link field, and click "Submit."
+Now, well get to differnt ways to symbolize data. You'll be exploring tornados. To get started, go back up to the map layers pane and hide the "us_counties" layer by clicking the eye button. Then click on "+Add new Layer"  and choose the "Connect Dataset" tab. **Copy** the link below:
 
-If you want, you can examine the information by opening the CSV file from the link provided with Excel or another spreadsheet software. If you do, you'll see four columns: damage, date, latitude, and longitude.
+http://academy.CARTO.com/d/tornadoes.zip
 
-In the data view on CARTO, you have all of these columns in addition to a few created by the software. One of these columns is called "the\_geom," which we have mentioned in previous lessons. This time, "the\_geom" contains the two columns in your CSV labeled "latitude" and "longitude" — CARTO knows how to take these columns and turn them into points.
+Then just paste the link you copied above into the link field, and click "Submit."
+
+The map may look similar to the population points, but this time each dot represents a recorded tornado, not a city. *If you want*, you can examine the information by opening the CSV file from the link provided with Excel or another spreadsheet software. If you do, you'll see four columns: damage, date, latitude, and longitude.
+
+In the data view on CARTO, you have all of these columns in addition to a few created by the software. One of these columns is called "the\_geom," which we have mentioned earlier. This time, "the\_geom" contains the two columns in your CSV labeled "latitude" and "longitude" — CARTO knows how to take these columns and turn them into points.
 
 CARTO also lets you see the _types_ of data for each column. For example, you can see that **damage** is a number, and not a string data type (because it has numerical data, not text). You can also see that **date** was imported as a string, rather than a date type.
 
-It's easy — and important — for you to change the data types, because they affect what kinds of visualizations you can create. For example, using the date type, you can do some things that you can't do with a string type. Therefore, click on the small dots menu next to "date" to pull down a menu, click on "Change data type…" and select "date." You'll be asked to confirm and let the software know that it's okay to make the change. Below you can see that we're changing the "date" column from a "string" to a "date" data type.
+It's easy — and important — for you to change the data types, because they affect what kinds of visualizations you can create. For example, using the date type, you can do some things that you can't do with a string type. Therefore, click on the snowman menu next to **"date"** to pull down a menu, click on **"Change data type…"** and select "date." You'll be asked to confirm and let the software know that it's okay to make the change. Below you can see that we're changing the "date" column from a "string" to a "date" data type.
 
-IMAGE 9
+![Date Format](/Images/dateformat.png)
+
 
 # **6. Making a Thematic Map**
 
