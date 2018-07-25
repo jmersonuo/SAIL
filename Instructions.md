@@ -158,6 +158,7 @@ Once you select Animation, it's probable that the column that CARTO picked to vi
 As with the other visualizations, you can change the stroke and fill of the markers. Experiment now with changing opacity and colors until you're happy with what you see. You may want to remove the marker stroke to clean things up a bit further.
 
 **Adjust the timing**
+
 There are other useful parameters in the Animation visualization as well. "Steps" refer to the number of bins that the data are broken up into when it's visualized, each becomes a frame in the animation. You can also change the duration of the visualization, which changes the length of the entire animation from beginning to end. 
 
 Try setting a **Duration - 30** and **Steps - 365** (You'll see 1 frame per *day* in 30 seconds!).
@@ -249,7 +250,7 @@ Styling your map visualizations when you have multiple layers of data functions 
 
 You can continue to play around with the visualization settings on both layers, and use the things you've learned in the previous lessons to create a good-looking visualization to share with anyone. Send a link to your parents and show them the cool stuff you're doing. This would be a great way to break the ice before you tell them you're changing your major to Geography.
 
-# **Credit Where It's Due**
+# **Credit where it's due**
 
 This workshop instruction was adapted from content by Bill Limpisathian from lab materials that was developed by Dr. Anthony Robinson, Dr. Peter Koby, and Dr. Sterling Quinn at Penn State based on a tutorial contributed by [CARTO](http://academy.carto.com/).
 
