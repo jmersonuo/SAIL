@@ -7,22 +7,23 @@ Ten to fifteen years ago, creating maps on the web required doing some challengi
 
 As interactive web technologies have improved, companies like Mapbox and CARTO stepped in to fill the needs of these nontraditional GIS consumers, providing mapping solutions wherein you can upload your dataset to the cloud and style it within the web browser. The tools are convenient enough that they have also become popular with professionals in the geospatial industry. Today, you'll use a tool called CARTO to make a web-based interactive map yourself.
 
-# **1. Create a CARTO Account**
+# **1. Create a CARTO account**
 
 The first thing you need to do is to create a 30-day trial account with CARTO. Go to [https://carto.com/](https://carto.com/) and click the "Sign Up" button at the top. 
 Then click: 
+
 ![Getting Started](/Images/GetStarted.png).
 
 Sign up using any email address, or an existing google or github account.
 It takes a few seconds to create your account, and once this is finished, you'll see your CARTO Dashboard.
 
-# **2. Connecting a Table to a Map**
+# **2. Connecting a table to a map**
 
 Once you're logged in and on your dashboard, click **"New Map"** in the middle (you may need to click the "Maps" link at the top if you don't see this).
 
-Next, click **"Create Empty Map"** (on the upper right). If it's your first time, it will ask if you want to Take a Tour. It's up to you, but for now, let's just **edit your map**. At this point, you should see a nice, simple world map.
+Next, click **"Create Empty Map"** (on the upper right). If it's your first time, it will ask if you want to Take a Tour. It's up to you, but for now, let's just **"edit your map"**. At this point, you should see a nice, simple world map.
 
-It's possible you'll see a window asking if you want to add points, lines, or areas. If this is the case, click "Skip" to bypass the window and then click the **"Add New Layer"** button in the upper left pane.
+It's possible you'll see a window asking if you want to add points, lines, or areas. If this is the case, click "Skip" to bypass the window. Click the **"Add New Layer"** button in the upper left pane.
 
 Select **"DATA LIBRARY"** This is CARTO's public library of open data that is a good starting place for many maps you will create. The dataset we will be using is called "Populated Places". Find it by clicking the **"search"** button on the left, and type in *"Populated Places"*. The search may take awhile (I had to wait almost a minute). If it takes too long you can also browse available datasets and find this one on page 5 of the results. Once the search loads, you may see multiple datasets here, but make sure to select the one called "Populated Places" with the subtitle "Most populated places" made by "Natural Earth Data".
 
@@ -37,7 +38,7 @@ As you look at the table, take note of the second column from the left called th
 Now go back to your map *tab* to begin designing your map.
 
 
-# **3. Making A Basic Thematic Map**
+# **3. Making a basic thematic map**
 
 When you view your map, you should see something like this:
 
@@ -45,28 +46,32 @@ When you view your map, you should see something like this:
 
 **A. Change the basemap**
 
-First, let's take a look at the available basemaps by clicking the *"Voyager"* layer at the bottom left. There are lots to choose from, and if you wanted to, you could change settings under the hood in CARTO to bring in additional basemaps from other sources.
+First, let's take a look at the available basemaps by clicking the *"Voyager"* layer at the bottom left. There are lots to choose from.
 
 ![Basemaps](/Images/Basemaps.png)
 
-Play around and change the basemap a few times to see what's available. Each *Source* has a few *Styles*. Choose a basemap that isn't too busy, like Positron - Positron (lite), or Carto - World Antique, or Here - Reduced Day. After that's finished, click the back arrow in the top left, to go back to the main menu.
+Change the basemap a few times to see what's available. Each *Source* has a few *Styles*. Choose a basemap that isn't too busy, like Positron - Positron (lite), or Carto - World Antique, or Here - Reduced Day. After that's finished, click the back arrow in the top left, to go back to the main menu.
 
 **B. Style your data layer**
 
 We are going to make the points that are nations' capitals a different color than the rest of the points. Click your "ne\_10m\_populated" layer, and click on "STYLE" to take a look at the symbolozation settings.
 ![Style](/Images/Style.png)
 
-Once there, keep "aggregation" as "POINTS". then set the "POINT COLOR" to "By value", then scroll to the bottom of the list to select the table column **'adm0cap'**, which contains data about which cities are *capitals* (represented by 1 in the color-selecctor) and which aren't (represented by 0). Click where it says "Quantiles" and scroll down to select "Category", then try different color schemes. You should have a few points showing the nations' capitols in one color, and the rest a different color. Can you identify Washington, D.C., and Ottawa, Canada on the map?
+Once there, keep "aggregation" as "POINTS". then set the "POINT COLOR" to "By value", then scroll to the bottom of the list to select the table column **'adm0cap'**, which contains data about which cities are *capitals* (represented by 1 in the color-selecctor) and which aren't (represented by 0). 
+
+Click where it says "Quantiles" and scroll down to select "Category", then try different color schemes. You should have a few points showing the nations' capitols in one color, and the rest a different color. 
+
+Can you identify Washington, D.C., and Ottawa, Canada on the map?
 
 ![Style By Value](/Images/StyleByValue.png)
 
 # **C. Add a legend**
 
-Still in the "ne\_10m\_populated" layer options, click on the **"LEGEND"** tab. Choose the custom legend. 
+To show what the colors mean on the map, you need to add a legend. Still in the "ne\_10m\_populated" layer options, click on the **"LEGEND"** tab. Choose the custom legend. 
 
 Give it the title **"Populated Places"**. Leave the first item as **"Places"**, the second **"Capitals"**, and the third **"Others"**.
 
-![Legend](/Images/Legend.png)
+![Legend](/Images/CityLegend.png)
 
 # **4. Interactive Visualization in CARTO**
 
